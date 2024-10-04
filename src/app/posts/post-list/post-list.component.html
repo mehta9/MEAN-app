@@ -1,0 +1,25 @@
+@if(isLoading){
+<mat-spinner></mat-spinner>
+}
+@else{
+<mat-accordion multi="true">
+    @for(post of posts; track $index){
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            {{post.title}}
+        </mat-expansion-panel-header>
+        <div class="post-image">
+            <img [src]="post.imagePath" [alt]="post.title">
+        </div>
+        <p>{{post.content}}</p>
+        <mat-action-row class="action-bar">
+            <a mat-button class="edit" [routerLink]="['/edit', post.id]" routerLinkActive="active">EDIT</a>
+            <button mat-raised-button class="delete" (click)="onDelete(post.id)">DELETE</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+    } @empty {
+    No Post Added Yet!
+    }
+</mat-accordion>
+}
+<router-outlet></router-outlet>
