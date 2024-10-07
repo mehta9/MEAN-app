@@ -22,4 +22,10 @@
     }
 </mat-accordion>
 }
+@if(posts.length > 0){
+    <mat-paginator [length]="totalPost" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions"
+        (page)="onChangedPage($event)" aria-label="Select page">
+    </mat-paginator>
+}
+
 <router-outlet></router-outlet>

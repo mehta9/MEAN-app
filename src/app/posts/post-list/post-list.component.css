@@ -30,3 +30,7 @@ mat-spinner{
 .post-image {
     width: 100%;
 }
+
+mat-paginator{
+    margin-top: 1rem;
+}
